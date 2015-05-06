@@ -21,14 +21,16 @@ define([
         _workbooks : null,
         _workbooksOptions: [],
         _section: "testing",
+        _username = "",
 
-        constructor: function(/*String*/ section){
+        constructor: function(/*String*/ section, /*String*/ username){
             this._section = section;
+            this._username = username;
         },
 
         postCreate: function(){
              dojo.xhrGet({
-                url:"./js/workbooks/workbook-index.json",
+                url:"./styles/prosilver/template/dragoon-forums/js/workbooks/workbook-index.json",
                 handleAs: "json",
                 load: lang.hitch(this, function(response){
                     this._workbooks = response;
@@ -62,7 +64,7 @@ define([
                 var page_url = document.location.href;
                 var query_sid = page_url.substring(page_url.indexOf("sid=") + 4, page_url.length);
                 
-                 url="http://dragoon.asu.edu/worksheets/"+formJson.workbook_name+"?u="+ formJson.username +"&s="+this._section;
+                 url="http://dragoon.asu.edu/worksheets/"+formJson.workbook_name+"?u="+ this._username +"&s="+this._section;
                 var win = window.open(url, '_blank');
                 win.focus();
             }

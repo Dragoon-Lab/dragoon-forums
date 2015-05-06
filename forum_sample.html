@@ -5,12 +5,12 @@
         	parseOnLoad: true,
         	async: 1,
         	dojoBlankHtmlUrl: '/blank.html',
-	        packages: [{name: 'dragoon-forum', location: location.pathname.replace(/\/[^/]+$/, '') + '/js'},
+	        packages: [{name: 'dragoon-forum', location: location.pathname.replace(/\/[^/]+$/, '') + '/styles/prosilver/template/dragoon-forums/js'},
 	        		   {name: 'dragoon-public-login', location: '/demo/publicLogin'}]"
          src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" ></script>
 
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dijit/themes/claro/claro.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="./styles/prosilver/template/dragoon-forums/css/style.css"/>
 <script>
 	require(["dojo/parser",
 			 "dojo/dom",
@@ -21,11 +21,11 @@
          	 "dojo/domReady!"],
          	 function(parser, dom, ready, authoredProblems, officialProblems, workbookWidget){
          	 	ready(function(){
-         	 		var OfficialProblems = new officialProblems("./js/official-problems/problem-index.json", "testing", 2, true).placeAt("officialContainer");
+         	 		var OfficialProblems = new officialProblems("./styles/prosilver/template/dragoon-forums/js/official-problems/problem-index.json", "testing", "{S_USERNAME}", "{BOARD_URL}", 2, true).placeAt("officialContainer");
 
-         	 		var AuthoredProblems = new authoredProblems("http://dragoon.asu.edu/demo/available_problems.php","testing", 2, true).placeAt("authorContainer");
-
-         	 		var WorkbookWidget = new workbookWidget("testing").placeAt("workbookContainer");
+			 		var AuthoredProblems = new authoredProblems("http://dragoon.asu.edu/devel/available_problems.php","login.html", "{S_USERNAME}", "{BOARD_URL}", 2, true).placeAt("authorContainer");
+					
+					var WorkbookWidget = new workbookWidget("testing").placeAt("workbookContainer", "{S_USERNAME}");
          	 	 });
          });
 </script>

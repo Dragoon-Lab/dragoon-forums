@@ -23,12 +23,16 @@ define([
 		_problemIndex:[],
 		_fid : 2,
 		_fenable: false,
+		_username:"",
+		_boardUrl:"",
 
-		constructor:function(/*String*/ problemsUrl, /*String*/ section, /*Number*/fid, /*Boolean*/ fenable){
+		constructor:function(/*String*/ problemsUrl, /*String*/ section, /*String*/ username, /*String*/ boardUrl, /*Number*/fid, /*Boolean*/ fenable){
 			this.problemUrl = problemsUrl;
 			this._fid = fid;
 			this._fenable = fenable;
 			this._section = section;
+			this._username = username;
+			this._boardUrl = boardUrl;
 		},
 
 		postCreate: function(){
@@ -73,7 +77,7 @@ define([
 			var data = {}
 			if(type == "personal"){
 				data = {
-					username: "{S_USERNAME}",
+					group: this._username,
 					section : this._section
 				};
 			}
@@ -119,9 +123,10 @@ define([
       			var query_sid = page_url.substring(page_url.indexOf("sid=") + 4, page_url.length);
 
 				var problem = (formJson.problem_name == "name")? formJson.author_problem_name: formJson.problem_new_name;
+				var forumURL = this._boardUrl + "adm/create_forum.php";
 
-				url="http://dragoon.asu.edu/demo/index.html?u="+ formJson.username +"&g="+formJson.group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
-				problem+"&s="+this._section+"&f="+formJson.forumurl+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable;
+				url="http://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+formJson.group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
+				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable;
 				var win = window.open(url, '_blank');
        			win.focus();
 			}
