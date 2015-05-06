@@ -21,7 +21,7 @@ define([
         _workbooks : null,
         _workbooksOptions: [],
         _section: "testing",
-        _username = "",
+        _username: "",
 
         constructor: function(/*String*/ section, /*String*/ username){
             this._section = section;
