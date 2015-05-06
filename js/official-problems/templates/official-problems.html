@@ -1,0 +1,26 @@
+<div>
+<form data-dojo-type="dijit/form/Form" data-dojo-id="official_problems" id="official_problems" class="problem-selection-form">
+	<h2>Official Problems</h2>
+	<input type="hidden" name="username" value="{S_USERNAME}">
+	<input type="hidden" name="forumurl" value="{BOARD_URL}adm/create_forum.php">
+
+	<label for="official_folders">Folder: </label>
+	<select id="official_folders" name="folder" onchange="" data-dojo-type="dijit/form/Select" required style="width:250px">
+	</select>
+	<br/>
+	<label for="official_problem_name">Name: </label>
+	<select id="official_problem_name"  name="problem"  onchange="" data-dojo-type="dijit/form/Select" required style="width:250px">
+		<option value="">----Select----</option>
+	</select>
+	<br/>
+	<label for="official_problem_mode">Mode: </label>
+	<select id="official_problem_mode" name="mode" onchange="" data-dojo-type="dijit/form/Select" required style="width:250px">
+		<option value="COACHED">Coached</option>
+		<option value="STUDENT" selected="true">Immediate Feedback (Student)</option>
+		<option value="TEST">Delayed Feedback (Test)</option>
+		<option value="EDITOR">No Feedback (Editor)</option>
+	</select>
+	<br/>
+	<button id="submit_official_problem" name="submit"  data-dojo-type="dijit/form/Button"> Open Problem </button>
+</form>
+</div>
