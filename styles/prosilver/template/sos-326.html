@@ -1,0 +1,497 @@
+<!-- INCLUDE overall_header.html -->
+
+<h2>SOS 326:  Sustainable Ecosystems</h2>
+
+<div class="panel">
+   <div class="inner"><span class="corners-top"><span></span></span>
+
+   <div class="content">
+      <p>
+
+    <script type="text/javascript">
+        dojoConfig = {isDebug: true, parseOnLoad: true};
+    </script>
+          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js"></script>
+          <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dijit/themes/claro/claro.css"/>
+
+          <style type="text/css">
+        body {
+            background-color: #C6F5F2;
+            font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+        }
+
+        #content {
+            background-color:#C6F5F2;
+            /* width:950px;
+             min-height:450px; */
+            text-align:left;
+            padding:20px;
+        }
+
+        h2 {
+            /* padding-left: 0px !important;
+             text-align:right; */
+        }
+
+        .large { font-size:22px; }
+        .orange { color:orange; }
+        .italic { font-style:italic }
+        .textmiddle {vertical-align:middle;}
+        .padout { padding-left:25px; padding-right:25px; }
+
+        .rounded-corners {
+            -moz-border-radius: 40px;
+            -webkit-border-radius: 40px;
+            -khtml-border-radius: 40px;
+            border-radius: 40px;
+        }
+        .rounded-corners-top {
+            -moz-border-top-radius: 40px;
+            -webkit-border-radius: 40px;
+            -khtml-border-radius: 40px;
+            border-radius: 40px;
+        }
+        .right {
+            float: right;
+        }
+        .scrolldown {
+            padding-left:20px;
+            color:#EDECE8; font-size:40px;
+            font-weight:bold;
+            vertical-align:middle;
+            text-shadow: #6374AB 2px 2px 2px;
+        }
+        .contentblock { margin: 0px 20px; }
+        .results { border: 1px solid blue; padding:20px; margin-top:20px; min-height:50px; }
+        .blue-bold { font-size:18px; font-weight:bold; color:blue; }
+
+        .problem-selection-form {
+            background: url("/devel/form-fieldset.gif") repeat-x scroll left bottom #F8FDEF;
+            border: 1px solid #DFDCDC;
+            border-radius: 15px 15px 15px 15px;
+            display: inline-block;
+            margin-bottom: 30px;
+            margin-left: 20px;
+            margin-top: 10px;
+            padding: 25px 50px 10px;
+            width: 390px;
+        }
+
+        .problem-selection-form .fieldgroup {
+            background: url("/devel/form-divider.gif") repeat-x scroll left top transparent;
+            display: inline-block;
+            padding: 8px 10px;
+            width: 380px;
+        }
+
+        .problem-selection-form .fieldgroup label {
+            float: left;
+            padding: 15px 5px 0;
+            text-align: right;
+            width: 120px;
+            font-weight:bold;
+        }
+
+        .problem-selection-form .fieldgroup input, #problem-selection-form .fieldgroup textarea, #problem-selection-form .fieldgroup select {
+            float: right;
+            margin: 10px 0;
+            height: 30px;
+        }
+
+        .problem-selection-form .submit {
+            padding: 10px;
+            width: 220px;
+            height: 40px !important;
+        }
+
+        .problem-selection-form .fieldgroup label.error {
+            color: #FB3A3A;
+            display: inline-block;
+            margin: 4px 0 5px 175px;
+            padding: 0;
+            text-align: left;
+            width: 220px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // Extract the sid from the url
+        var page_url=document.location.href;
+        var query_sid = page_url.substring(page_url.indexOf("sid=") + 4, page_url.length);
+        console.log("sid is",query_sid);
+       // Define the fid that is the forum id of the LMS
+        var fid=6;
+        var problemIndex = {
+            'Easy': {
+                'jared1': "Jared's weight",
+                'jared2': "Jared &amp Oprah",
+                'jared3': "Jared &amp; Oprah +",
+                'jared4': "Jared &amp; Oprah *",
+                'dodos': "Dodo extinction",
+                'rabbits': "Rabbit population",
+                105: 'Intro problem 1', 106: 'Intro problem 2',
+                107: 'Intro problem 3', 108: 'Intro problem 4'
+            },
+            'Training': {
+                74: 'Dying orchard', 92: 'Bilge water', 94: 'Rust',
+                110: 'Chestnut blight', 95: 'Bus Fleet', 93: 'Rider gap',
+                96: 'Capacity utilization', 97: 'Bank Account',
+                98: 'Merchant Marine', 80: 'Metro Singles Club'
+            },
+            'Challenge': {
+                111: 'Bookworm', 99: 'Venice', 109: 'Giardia Bacteria',
+                112: 'Blood Glucose', 100: 'Oil Tanker',
+                79: 'Hardwood Forest', 101: 'ASU Commuters',
+                115: 'Widget Stocking', 113: 'Busy Hospital',
+                114: 'ObscureFlix'
+            },
+            'Urban Waterfowl': {
+                '201': 'Waterfowl 1',
+                '202': 'Waterfowl 2',
+                '203': 'Waterfowl 3',
+                '204': 'Waterfowl & cats'
+            },
+            'Isle Royale': {
+                'isle1': 'Moose population 1',
+                'isle2': 'Moose population 2',
+                'isle3': 'Moose population 3',
+                'isle4': 'Moose population 4',
+                'isle5': 'Wolves',
+                'isle6': 'Moose and Wolves'
+            },
+            'Calories': {
+                'calorie-male': 'Weight and Calories: male',
+                'calorie-female': 'Weight and Calories: female'
+            },
+            'Kinematics': {
+                '1dfall1': 'Fall from building 1',
+                '1dfall2': 'Fall from building 2',
+                '1dfall3': 'Fall from building 3',
+                '1dfall4': 'Thrown Stone 1',
+                '1dfall5': 'Thrown Stone 2'
+            },
+            'Fall 2013': {
+                'barrels': 'Two Barrels',
+                'evaporation': 'Accelerating Evaporation',
+                // Very complicated.
+                // 'greenhouse1': 'Greenhouse 1',
+                'parkinglot': 'Front Lot to Back Lot',
+                'predator-prey': 'Predator-Prey',
+                'toilet': 'Toilet tank',
+                'weighttoss': 'Weight Toss'
+            }
+        };
+
+
+
+ 
+var pid=[];  // global list of the problem ids
+
+require(["dojo/parser","dojo/dom","dijit/registry","dijit/form/Select",
+         "dojo/request/xhr","dojo/_base/array",
+         "dojo/dom-construct", 
+         "dojo/json","dojo/ready","dojo/domReady!"],
+function(parser,dom,registry,Select,xhr,array,domConst,JSON, ready){
+    parser.parse();  // Make sure widgets are defined
+
+function addProblems(){
+	console.log("sending xhr request");
+    xhr("../LaitsV3/www/available_problems.php",{
+      // Script also wants "student" but we will assume
+      // All solutions are shared in this class
+      query: {
+        // This should be gotten from the appropriate section
+        // form field (or java should set that field).
+		username: "",
+        section: "sos-326-spring14"
+      },
+      handleAs: "json"
+    }).then(function(data){
+    	console.log("data called for");
+        var widget = registry.byId("custom_problems");
+        console.log("retrieved problems:  ",data);
+        widget.options=[];  // clear any existing options.
+        widget.addOption({label:"--choose problem--",value:""});
+        pid=[];
+        var i=1;  // value=0 acts like value=''
+        array.forEach(data,function(datum){
+           pid[i]=datum;  // record value for submit handling
+           var y={label:datum.problem+" by "+datum.group,
+                             value:i++};
+           widget.addOption(y);
+        });
+    },
+    function(err){
+       console.log("an error occurred:  ",err);
+    });
+  };
+
+  // initially populate options on startup
+  addProblems();
+  console.log("add problems called");
+
+  // Update options list which select is selected.
+  var widget=registry.byId("custom_problems");
+  console.log("add connect to ",widget);
+  dojo.connect(widget,"onClick",addProblems);
+});
+
+
+      function handleRequest(theForm){
+        console.log("request handler opened");
+        var prob=theForm.type.value;
+        console.log("handling the problem",prob);
+        if(prob=="inivalues"){
+          window.location.href="http://dragoon.asu.edu/demo/index.html?u="+ theForm.username.value +"&m=STUDENT&sm=feedback&is=algebraic&p="+ theForm.problem_id.value+"&s="+theForm.section.value+"&f="+theForm.forumurl.value+"&sid="+query_sid+"&fid="+fid;
+        }
+        else if(prob=="coached_probs"){
+            window.location.href="http://dragoon.asu.edu/demo/index.html?u="+ theForm.username.value +"&m=COACHED&sm=feedback&is=algebraic&p="+ theForm.problem_id.value+"&s="+theForm.section.value+"&f="+theForm.forumurl.value+"&sid="+query_sid+"&fid="+fid;
+        }
+        else if(prob=="addlProbs"){
+            window.location.href="http://dragoon.asu.edu/demo/index.html?u="+ theForm.username.value +"&m=STUDENT&sm=feedback&is=algebraic&p="+ theForm.problem_id.value+"&s="+theForm.section.value+"&f="+theForm.forumurl.value+"&sid="+query_sid+"&fid="+fid;
+        }
+        else if(prob=="AuthorCustProb"){
+            window.location.href="http://dragoon.asu.edu/demo/index.html?u="+ theForm.username.value +"&m=AUTHOR&is=algebraic&p="+ theForm.author_problem.value+"&s="+theForm.section.value+"&g="+theForm.authorname.value+"&f="+theForm.forumurl.value+"&sid="+query_sid+"&fid="+fid;
+        }
+
+      }
+
+      function addAuthor(formName){
+         var form=document.forms[formName];
+         var id=form["problem_id"].value;
+         var datum=pid[id];
+         console.log(datum,"datum");
+         form["problem_id"].value=datum.problem;
+         form["group"].value=datum.group;
+         form["session_id"].value=datum.session_id;
+         window.location.href = "http://dragoon.asu.edu/demo/index.html?u="+ form.username.value +"&m=STUDENT&is=algebraic&p="+ form.problem_id.value+"&s="+form.section.value+"&g="+form.group.value+"&sid="+query_sid+"&fid="+fid+"&x="+form.session_id.value;
+      }
+      function updateProblems(){
+            console.log("updateProblems called.");
+            var form = document.forms["problem-select"];
+            console.log("form",form);
+            var category = form["problem_category"].value;
+            var problemOptions = form["problem_id"].options;
+            problemOptions.length = 0; // Delete existing options
+            for(var id in problemIndex[category]){
+                var option = document.createElement("option");
+                option.value = id;
+                option.text = problemIndex[category][id];
+                problemOptions.add(option);
+            }
+      }
+      window.onload = function(){
+            updateProblems();
+        };
+
+    </script>
+
+<div id="page-wrap">
+
+    <div id="content">
+
+  <form action="javascript:void(0);"  onsubmit="handleRequest(this);"
+        name="iniProbs" class="problem-selection-form" >
+       <h2>Initial Problems</h2>
+
+    <input type="hidden" name="mode" value="STUDENT">
+    <input type="hidden" name="section" value="sos-326-spring14">
+    <input type="hidden" name="username" value="{S_USERNAME}">
+    <input type="hidden" name="type" value="inivalues">
+    <input type="hidden" name="forumurl" value="{BOARD_URL}adm/create_forum.php">
+ 		<div class="fieldgroup">
+        	<label for="initial_problems">Problem Name: </label>
+            <select id="initial_problems" name="problem_id">
+            	<option value="74">Dying orchard</option>
+            	<option value="110">Chestnut blight</option>
+				<!-- <option value="ecosystem">Ecosystem</option> -->
+				<option value="predator-prey">Predator-prey</option>
+            </select>
+       	</div>            
+       	<div class="fieldgroup">
+        	<button type="submit" value="Continue" class="submit">Open problem</button>
+       	</div>
+     </form>
+
+
+  <form action="javascript:void(0);"  class="problem-selection-form" onsubmit="handleRequest(this)">
+          <h2>Coached problems</h2>
+
+        You can use the <a href="/intro-handout.pdf">handout</a> to help you.<br>
+
+        	   <input type="hidden" name="username" value="{S_USERNAME}">
+              <input type="hidden" name="mode" value="COACHED">
+              <input type="hidden" name="section" value="sos-326-spring14">
+    	      <input type="hidden" name="type" value="coached_probs">
+              <input type="hidden" name="forumurl"
+		     value="{BOARD_URL}adm/create_forum.php">
+                    <div class="fieldgroup">
+                        <label for="coached_problems">Problem: </label>
+                        <select id="coached_problems" name="problem_id">
+                           <!-- These should be filled dynamially from map, Bug #2183 --> 
+                            <option value="jared1">Jared's weight</option>
+                            <option value="jared2">Jared &amp; Oprah</option>
+                            <option value="jared3">Jared &amp; Oprah +</option>
+                            <option value="jared4">Jared &amp; Oprah *</option>
+                            <option value="dodos">Dodo extinction</option>
+                            <option value="rabbits">Rabbit population</option>
+                         </select>
+                    </div>
+
+                    <div class="fieldgroup">
+                        <button type="submit" value="Continue" class="submit">
+                        Open problem
+                        </button>
+                    </div>
+  </form>                   
+
+
+        <form action="javascript:void(0);" class="problem-selection-form" name="problem-select" onsubmit="handleRequest(this)">
+
+            <h2>Additional Dragoon Problems</h2>
+        	   <input type="hidden" name="username" value="{S_USERNAME}" >
+                   <input type="hidden" name="mode" value="STUDENT">
+		   <input type="hidden" name="forumurl"
+			  value="{BOARD_URL}adm/create_forum.php">
+           <input type="hidden" name="type" value="addlProbs">
+
+                    <div class="fieldgroup">
+                        <label for="problem_category">Problem Category: </label>
+                        <select id="problem_category" name="problem_category" onchange="updateProblems();">
+                           <!-- These should be filled dynamically from map, Bug #2183 --> 
+                           <option>Isle Royale</option>
+                          <!--  <option>Urban Waterfowl</option>  -->
+                           <option>Kinematics</option> 
+                           <option>Easy</option>
+                           <option>Training</option>
+                           <option>Challenge</option>
+			    
+                        </select>
+                    </div>
+
+                    <div class="fieldgroup">
+                        
+                        <label for="additional_problems">Problem: </label>
+                        <select id="additional_problems"  name="problem_id">
+                            <option value="isle1">Moose population 1</option>
+                            <option value="isle2">Moose population 2</option>
+                            <option value="isle3">Moose population 3</option>
+                            <option value="isle4">Moose population 4</option>
+                            <option value="isle5">Wolves</option>
+                            <option value="isle6">Moose and Wolves</option>                            
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="section" value="sos-326-spring14">
+
+                    <div class="fieldgroup">
+                        <button type="submit" value="Continue" class="submit">
+                        Open problem
+                        </button>
+                    </div>
+
+
+        </form>
+
+        <form action="javascript:void(0);"  class="problem-selection-form" onsubmit="handleRequest(this)">
+
+            <h2>Author a custom problem</h2>
+            <input type="hidden" name="username" value="{S_USERNAME}">
+            <input type="hidden" name="type" value="AuthorCustProb">
+		    <input type="hidden" name="mode" value="author">
+		    <input type="hidden" name="forumurl" 
+			  value="{BOARD_URL}adm/create_forum.php">
+
+                    <div class="fieldgroup">
+                        <label for="author_problem">Problem: </label>
+                        <input type="text" id="author_problem" name="problem_id" onChange="javascript:this.value=this.value.toLowerCase();">
+                    </div>
+                    <div class="fieldgroup">
+                        <label for="problem_author">Group ID:</label>
+                        <select id="problem_author" name="authorname">
+			               <option value="Whole Systems 1">Whole Systems 1</option>
+			               <option value="Whole Systems 2">Whole Systems 2</option>
+                           <option value="Whole Systems 3">Whole Systems 3</option>
+                           <option value="Whole Systems 4">Whole Systems 4</option>
+                           <option value="Whole Systems 5">Whole Systems 5</option>
+                           <option value="Whole Systems 6">Whole Systems 6</option>
+                           <option value="Whole Systems 7">Whole Systems 7</option>
+                           <option value="Whole Systems 8">Whole Systems 8</option>
+			               <option value="Parks Challenges">Parks Challenges</option>
+			               <option value="Parks Visions">Parks Visions</option>
+		                   <option value="Water Challenges">Water Challenges</option>
+			               <option value="Water Visions">Water Visions</option>
+			               <option value="Transit Challenges">Transit Challenges</option>
+			               <option value="Transit Visions">Transit Visions</option>
+                           <option value="Group 1">Group 1</option>
+                           <option value="Group 2">Group 2</option>
+                           <option value="Group 3">Group 3</option>
+                           <option value="Group 4">Group 4</option>
+                           <option value="Group 5">Group 5</option>
+                           <option value="Group 6">Group 6</option>
+                           <option value="Group 7">Group 7</option>
+                           <option value="Group 8">Group 8</option>
+                           <option value="Group 9">Group 9</option>
+                           <option value="Group 10">Group 10</option>
+                           <option value="Group 11">Group 11</option>
+                           <option value="Group 12">Group 12</option>
+                           <option value="Group 13">Group 13</option>
+                           <option value="Group 14">Group 14</option>
+                           <option value="Group 15">Group 15</option>
+                           <option value="{S_USERNAME}">Use my personal username</option>
+                        </select>
+                      </div>
+
+
+                    <input type="hidden" name="section" value="sos-326-spring14">
+
+                    <div class="fieldgroup">
+                        <button type="submit" value="Continue" class="submit">
+                        Open problem
+                        </button>
+                    </div>
+
+
+        </form>
+
+        <form action="javascript:void(0);"
+	      name="custom_student"
+              onsubmit="return addAuthor('custom_student');" 
+	      class="problem-selection-form">
+
+            <h2>Solve a custom problem</h2>
+		    <input type="hidden" name="username" value="{S_USERNAME}">
+		    <input type="hidden" name="forumurl" value="{BOARD_URL}adm/create_forum.php">
+		    <input type="hidden" name="mode" value="student">
+            <input type="hidden" name="section" value="sos-326-spring14">
+                    <!-- value will be overwritten by function addAuthor -->
+            <input type="hidden" name="group" value="">
+			<input type="hidden" name="session_id" value="">
+
+           <div class="claro">
+    <!-- Needs to be a dijit for addOption to work -->
+    <select id="custom_problems" name="problem_id"
+      data-dojo-type="dijit/form/Select">
+      <!-- This gets overwritten by the javascript -->
+      <option value="">--choose--</option>
+    </select>
+           </div>
+
+                    <div class="fieldgroup">
+                        <button type="submit" value="Continue" class="submit">
+                        Open problem
+                        </button>
+                    </div>
+
+
+        </form>
+
+   <h2><a href="viewforum.php?f=6">Problem Discussions</a></h2>
+
+
+    </div>
+
+</div>
+</div>
+<!-- INCLUDE jumpbox.html -->
+<!-- INCLUDE overall_footer.html -->
