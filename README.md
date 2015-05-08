@@ -9,5 +9,5 @@ You will need to copy example-index.php and example-config.php to index.php and 
 
 (TODO: add any installation instructions)
 
-##Index Page (or: How do I customize the forum's home page for a specific class?)
+##Index Page (or: How do I customize the home page for a specific class?)
 Each forum should have its own custom index page.  The index will be created by index.php importing an html file from the styles/prosilver/template/dragoon-forums/.  Each forum will have its own html file, and all of them will be stored in that aforementioned directory.  forum_sample.html is intended to be both an example and also the html for the public forum (aka the sample class).
