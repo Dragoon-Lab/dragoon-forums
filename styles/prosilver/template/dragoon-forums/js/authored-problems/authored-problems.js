@@ -63,11 +63,16 @@ define([
 				registry.byId("author_problem_name").set("disabled", false);
 				registry.byId("author_problem_new_name").set("required", false);
 				registry.byId("author_problem_new_name").set("disabled", true);
+
+				registry.byId("author_problem_mode").set("disabled", false);
 			}else{
 				registry.byId("author_problem_name").set("required", false);
 				registry.byId("author_problem_name").set("disabled", true);
 				registry.byId("author_problem_new_name").set("required", true);
 				registry.byId("author_problem_new_name").set("disabled", false);
+
+				registry.byId("author_problem_mode").set("disabled", true);
+				registry.byId("author_problem_mode").set("value", "AUTHOR");
 			}
 		},
 
@@ -79,7 +84,7 @@ define([
 		getAvailableProblems: function(type){
 			//Get available problems from given problems URL
 			var data = {}
-			if(type == "personal"){
+			if(type == "private"){
 				data = {
 					group: this._username,
 					section : this._section
