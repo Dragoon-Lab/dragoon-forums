@@ -37,7 +37,7 @@ define([
 
 		postCreate: function(){
 			
-			this.getAvailableProblems("personal");
+			this.getAvailableProblems("private");
 
 			//on click listener for submit
 			on(registry.byId("authored_problems_submit"), "click", lang.hitch(this, function(){
