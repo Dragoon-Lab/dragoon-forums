@@ -133,7 +133,7 @@ define([
 
 				var problem = (formJson.problem_name == "name")? formJson.author_problem_name: formJson.problem_new_name;
 				var forumURL = this._boardUrl + "adm/create_forum.php";
-				var group = registry.byId("author_folders").value == "personal" ? this._username : formJson.group
+				var group = registry.byId("author_folders").value == "private" ? this._username : formJson.group
 
 				url="http://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
 				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable;
