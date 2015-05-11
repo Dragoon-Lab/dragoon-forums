@@ -64,14 +64,14 @@ define([
 				registry.byId("author_problem_new_name").set("required", false);
 				registry.byId("author_problem_new_name").set("disabled", true);
 
-				registry.byId("author_problem_mode").set("disabled", false);
+				registry.byId("author_problem_mode").set("readOnly", false);
 			}else{
 				registry.byId("author_problem_name").set("required", false);
 				registry.byId("author_problem_name").set("disabled", true);
 				registry.byId("author_problem_new_name").set("required", true);
 				registry.byId("author_problem_new_name").set("disabled", false);
 
-				registry.byId("author_problem_mode").set("disabled", true);
+				registry.byId("author_problem_mode").set("readOnly", true);
 				registry.byId("author_problem_mode").set("value", "AUTHOR");
 			}
 		},
