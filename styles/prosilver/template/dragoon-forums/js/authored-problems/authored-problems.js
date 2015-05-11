@@ -86,14 +86,14 @@ define([
 			var data = {}
 			if(type == "private"){
 				data = {
-					g: "5566",
-					s : this._section
+					group: this._username,
+					section : this._section
 				};
 			}
 			else{
 				data = {
-					g: "public",
-					s: this._section
+					group: "public",
+					section: this._section
 				};
 			}
 
@@ -133,7 +133,7 @@ define([
 
 				var problem = (formJson.problem_name == "name")? formJson.author_problem_name: formJson.problem_new_name;
 				var forumURL = this._boardUrl + "adm/create_forum.php";
-				var group = registry.byId("author_folders").value == "private" ? this._username : formJson.group
+				var group = registry.byId("author_folders").value == "personal" ? this._username : formJson.group
 
 				url="http://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
 				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable;
