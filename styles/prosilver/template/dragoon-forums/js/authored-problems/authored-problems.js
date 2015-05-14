@@ -86,14 +86,14 @@ define([
 			var data = {}
 			if(type == "private"){
 				data = {
-					group: this._username,
-					section : this._section
+					g:  this._username,
+					s : this._section
 				};
 			}
 			else{
 				data = {
-					group: "public",
-					section: this._section
+					g: "public",
+					s: this._section
 				};
 			}
 
