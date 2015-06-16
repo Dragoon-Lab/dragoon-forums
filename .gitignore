@@ -5,3 +5,4 @@ config.php
 
 #Ignore these directories
 cache
+installed
