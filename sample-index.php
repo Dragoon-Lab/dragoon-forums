@@ -13,8 +13,8 @@ if ($user->data['user_id'] == ANONYMOUS )
   {
     login_box('', $user->lang['LOGIN']);
   } 
-page_header('Steve Enos Class');
-$url=append_sid('ucla.html');
+page_header('<Title of the page>');
+$url=append_sid('dragoon-forums/<forum-sample>.html');
 $template->set_filenames(array(
 			       'body' => $url,
 			       ));
