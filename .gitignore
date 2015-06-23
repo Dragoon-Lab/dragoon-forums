@@ -1,0 +1,9 @@
+#Ignore these files
+index.php
+config.php
+.DS_Store
+
+#Ignore these directories
+cache
+install
+installed
