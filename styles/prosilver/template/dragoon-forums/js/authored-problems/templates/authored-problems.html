@@ -19,8 +19,8 @@
 	<label for="radio_problem_newname" >New Name: </label>
 	<input type="text" name="problem_new_name" data-dojo-type="dijit/form/ValidationTextBox" id="author_problem_new_name" 
 	pattern='^[A-Za-z0-9\-]+$'
-	invalidMessage= "Problem names must be between 1 and 30 characters, and may only include alphanumeric characters and the - symbol"
-	maxLength ="30"
+	invalidMessage= "Problem names must be between 1 and 50 characters, and may only include alphanumeric characters and the - symbol"
+	maxLength ="50"
 	disabled = "true"
 	style="width: 250px;"/>
 	<br/>
@@ -31,6 +31,12 @@
 		<option value="STUDENT">Immediate Feedback (Student)</option>
 		<option value="TEST">Delayed Feedback (Test)</option>
 		<option value="EDITOR">No Feedback (Editor)</option>
+	</select>
+	<br/>
+	<label for="author_problem_activity" class="extra">Activity: </label>
+	<select id="author_problem_activity" name="activity" data-dojo-type="dijit/form/Select" required style="width:250px" disabled = "true">
+		<option value="construction">construction</option>
+		<option value="incremental">incremental</option>
 	</select>
 	<br/>
 	<button id="authored_problems_submit" name="submit" data-dojo-type="dijit/form/Button"> Open Problem</button>

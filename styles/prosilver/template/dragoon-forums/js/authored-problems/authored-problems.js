@@ -13,8 +13,9 @@ define([
     "dijit/form/RadioButton",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
-    "dojo/text!./templates/authored-problems.html"
-], function(declare, lang, array, on, domForm, _WidgetBase, registry, form, select, radioButton, textBox, button, _TemplatedMixin, _WidgetsInTemplateMixin, template){
+    "dojo/text!./templates/authored-problems.html",
+    "dojo/text!./templates/authored-problems-ee.html"
+], function(declare, lang, array, on, domForm, _WidgetBase, registry, form, select, radioButton, textBox, button, _TemplatedMixin, _WidgetsInTemplateMixin, template, template2){
 
 	return declare("AuthoredProblems",[_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		
@@ -32,6 +33,9 @@ define([
 			this._fenable = fenable;
 			this._section = section;
 			this._username = username;
+			if(username == "joinerr" || username == "kvl" || username =="malexan9" || username == "jwauthor"){
+				this.templateString = template2;
+			}
 			this._boardUrl = boardUrl;
 		},
 
@@ -54,6 +58,10 @@ define([
 			//on change listener for folder change
 			on(registry.byId("author_folders"), "change", lang.hitch(this, function(){
 				this.onChangeFolder();
+			}));
+			//on change listener for mode change
+			on(registry.byId("author_problem_mode"), "change", lang.hitch(this, function(){
+				this.onChangeMode();
 			}));
 		},
 
@@ -81,6 +89,16 @@ define([
 			this.getAvailableProblems(selectedFolder);
 		},
 
+		onChangeMode: function() {
+			var selectedMode = registry.byId("author_problem_mode").value;
+			if (selectedMode === "AUTHOR"){
+				registry.byId("author_problem_activity").set("value", "construction");
+				registry.byId("author_problem_activity").set("disabled", true);
+			}else{
+				registry.byId("author_problem_activity").set("disabled", false);
+			}
+		},
+
 		getAvailableProblems: function(type){
 			//Get available problems from given problems URL
 			var data = {}
@@ -90,9 +108,15 @@ define([
 					s : this._section
 				};
 			}
+			else if(type == "public"){
+				data = {
+					g:  "public",
+					s : this._section
+				};
+			}
 			else{
 				data = {
-					g: "public",
+					g: type,
 					s: this._section
 				};
 			}
@@ -133,10 +157,11 @@ define([
 
 				var problem = (formJson.problem_name == "name")? formJson.author_problem_name: formJson.problem_new_name;
 				var forumURL = this._boardUrl + "adm/create_forum.php";
-				var group = registry.byId("author_folders").value == "private" ? this._username : formJson.group
+				var group = registry.byId("author_folders").value == "private" ? this._username : formJson.group;
+				var activity = (formJson.mode === "AUTHOR") ? "construction" : formJson.activity;
 
 				url="http://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
-				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable;
+				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable+"&a="+activity;
 				var win = window.open(url, '_blank');
        			win.focus();
 			}
