@@ -99,7 +99,7 @@ define([
       			var query_sid = page_url.substring(page_url.indexOf("sid=") + 4, page_url.length);
       			var forumURL = this._boardUrl + "adm/create_forum.php";
 
-				url="http://dragoon.asu.edu/demo/index.html?u="+ this._username +"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
+				url="https://dragoon.asu.edu/demo/index.html?u="+ this._username +"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
 				formJson.problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable;
 				var win = window.open(url, '_blank');
        			win.focus();

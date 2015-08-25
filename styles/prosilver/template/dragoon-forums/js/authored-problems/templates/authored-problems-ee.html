@@ -7,6 +7,8 @@
 	<select id="author_folders" name="group" data-dojo-type="dijit/form/Select" required>
 		<option value="private">Private</option>
 		<option value="public">public</option>
+		<option value="EE">EE</option>
+		<option value="EE2">EE2</option>
 	</select>
 	<br/>
 	<input type="radio" id="radio_problem_name" name="problem_name" value="name" data-dojo-type="dijit/form/RadioButton" checked="checked"> 
@@ -33,8 +35,8 @@
 		<option value="EDITOR">No Feedback (Editor)</option>
 	</select>
 	<br/>
-	<label for="author_problem_activity" class="extra" style="display:none">Activity: </label>
-	<select id="author_problem_activity" name="activity" data-dojo-type="dijit/form/Select" required style="width:250px;display:none" disabled = "true">
+	<label for="author_problem_activity" class="extra">Activity: </label>
+	<select id="author_problem_activity" name="activity" data-dojo-type="dijit/form/Select" required style="width:250px" disabled = "true">
 		<option value="construction">Construction</option>
 		<option value="incremental">Incremental</option>
 		<option value="incrementalDemo">Incremental Demo</option>

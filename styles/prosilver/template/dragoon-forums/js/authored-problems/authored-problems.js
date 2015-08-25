@@ -160,7 +160,7 @@ define([
 				var group = registry.byId("author_folders").value == "private" ? this._username : formJson.group;
 				var activity = (formJson.mode === "AUTHOR") ? "construction" : formJson.activity;
 
-				url="http://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
+				url="https://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
 				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable+"&a="+activity;
 				var win = window.open(url, '_blank');
        			win.focus();

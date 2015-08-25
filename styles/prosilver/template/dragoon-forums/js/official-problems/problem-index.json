@@ -18,6 +18,18 @@
         "Waterfowl 3": "203",
         "Waterfowl & cats": "204"
     },
+    "Ecosystem Population Dynamics v2": {
+        "Zebra Population 1": "zebra-population-growth-1",
+        "Zebra Population 2": "zebra-population-growth-2",
+        "Zebra Population 3": "zebra-population-growth-3",
+        "Zebra Population 4": "zebra-population-growth-4",
+        "Lion Population 1": "lion-population-growth-1",
+        "Lion Population 2": "lion-population-growth-2",
+        "Lion Population 2": "lion-population-growth-3",
+        "Lion Population 2": "lion-population-growth-4",
+        "Zebras and Lions - Independent": "zebra-lions-independent",
+	"Zebras and Lions - Combined":    "zebra-lions-combined"
+    },
     "Generic Models": {
         "constant": "constant",
         "constant change runs out": "constant-change-runs-out",

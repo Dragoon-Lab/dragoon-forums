@@ -64,7 +64,7 @@ define([
                 var page_url = document.location.href;
                 var query_sid = page_url.substring(page_url.indexOf("sid=") + 4, page_url.length);
                 
-                 url="http://dragoon.asu.edu/worksheets/"+formJson.workbook_name+"?u="+ this._username +"&s="+this._section;
+                 url="https://dragoon.asu.edu/worksheets/"+formJson.workbook_name+"?u="+ this._username +"&s="+this._section;
                 var win = window.open(url, '_blank');
                 win.focus();
             }
