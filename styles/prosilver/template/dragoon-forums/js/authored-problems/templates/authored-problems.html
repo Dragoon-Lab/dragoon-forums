@@ -2,22 +2,22 @@
 <div>
 <form data-dojo-type="dijit/form/Form" data-dojo-id="authored_problems" id="authored_problems" class="problem-selection-form">
 	<h2>Authored Problems</h2>
-	
+
 	<label for="author_folders" class="extra">Folder: </label>
 	<select id="author_folders" name="group" data-dojo-type="dijit/form/Select" required>
 		<option value="private">Private</option>
 		<option value="public">public</option>
 	</select>
 	<br/>
-	<input type="radio" id="radio_problem_name" name="problem_name" value="name" data-dojo-type="dijit/form/RadioButton" checked="checked"> 
+	<input type="radio" id="radio_problem_name" name="problem_name" value="name" data-dojo-type="dijit/form/RadioButton" checked="checked">
 	<label for="radio_problem_name">Name: </label>
 	<select id="author_problem_name" name="author_problem_name" data-dojo-type="dijit/form/Select"  style="width:250px" required>
 		<option value="">----Select----</option>
 	</select>
 	<br/>
-	<input type="radio" id="radio_problem_newname" name="problem_name" value="new_name" data-dojo-type="dijit/form/RadioButton" > 
+	<input type="radio" id="radio_problem_newname" name="problem_name" value="new_name" data-dojo-type="dijit/form/RadioButton" >
 	<label for="radio_problem_newname" >New Name: </label>
-	<input type="text" name="problem_new_name" data-dojo-type="dijit/form/ValidationTextBox" id="author_problem_new_name" 
+	<input type="text" name="problem_new_name" data-dojo-type="dijit/form/ValidationTextBox" id="author_problem_new_name"
 	pattern='^[A-Za-z0-9\-]+$'
 	invalidMessage= "Problem names must be between 1 and 50 characters, and may only include alphanumeric characters and the - symbol"
 	maxLength ="50"
@@ -33,6 +33,7 @@
 		<option value="EDITOR">No Feedback (Editor)</option>
 	</select>
 	<br/>
+
 	<label for="author_problem_activity" class="extra" style="display:none">Activity: </label>
 	<select id="author_problem_activity" name="activity" data-dojo-type="dijit/form/Select" required style="width:250px;display:none" disabled = "true">
 		<option value="construction">Construction</option>
@@ -40,6 +41,9 @@
 		<option value="incrementalDemo">Incremental Demo</option>
 	</select>
 	<br/>
+
+	<button id="authored_problems_delete" name="delete" data-dojo-type="dijit/form/Button"> Delete Problem</button>
+
 	<button id="authored_problems_submit" name="submit" data-dojo-type="dijit/form/Button"> Open Problem</button>
 </form>
 </div>
