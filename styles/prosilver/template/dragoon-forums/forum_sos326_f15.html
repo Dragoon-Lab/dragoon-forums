@@ -15,33 +15,28 @@
 	require(["dojo/parser",
 			 "dojo/dom",
          	 "dojo/ready",
-         	 "dragoon-forum/authored-problems/authored-problems",
-         	 "dragoon-forum/official-problems/official-problems",
-         	 "dragoon-forum/workbooks/workbooks",
+         	 "dragoon-forum/assigned-problems/assigned-problems",
          	 "dojo/domReady!"],
-         	 function(parser, dom, ready, authoredProblems, officialProblems, workbookWidget){
+         	 function(parser, dom, ready, assignedProblems){
          	 	ready(function(){
-         	 		var OfficialProblems = new officialProblems("./styles/prosilver/template/dragoon-forums/js/official-problems/problem-index.json", "testing", "{S_USERNAME}", "{BOARD_URL}", 2, true).placeAt("officialContainer");
+         	 		var assignedProblems = new AssignedProblems("./styles/prosilver/template/dragoon-forums/js/assigned-problems/problem-index.json", "sos326_f15", "{S_USERNAME}", "{BOARD_URL}", 2, true).placeAt("officialContainer");
 
-			 		var AuthoredProblems = new authoredProblems("https://dragoon.asu.edu/devel/available_problems.php","testing", "{S_USERNAME}", "{BOARD_URL}", 2, true).placeAt("authorContainer");
-
-					var WorkbookWidget = new workbookWidget("testing", "{S_USERNAME}").placeAt("workbookContainer");
          	 	 });
          });
 </script>
-<h2>Sample Class</h2>
+<h2>SoS 326 - Sustainable Ecosystems Fall 2015</h2>
 <div class="panel">
 	<div class="inner"><span class="corners-top"></span>
 		<div>
 		<div class="content claro">
 			<div id="officialContainer"></div>
-			<div id="authorContainer"></div>
-			<div id="workbookContainer"></div>
 			<div id="page-wrap">
-				<h2><a href="/demo/log/dashboard.html?m=STUDENT&s=testing">Dashboard (Problems)</a></h2>
-			    <h2><a href="/demo/log/schema_dashboard.html?m=STUDENT&s=testing">Dashboard (Generic models)</a></h2>
-			    <h2><a href="/demo/log/dashboard.html?t=leader&m=STUDENT&s=testing&us={S_USERNAME}">Open learner model (Problems)</a></h2>
-			    <h2><a href="/demo/log/schema_dashboard.html?t=olm&m=STUDENT&s=testing&us={S_USERNAME}">Open learner model (Generic models)</a></h2>
+<!-- IF U_ACP -->
+			    <!--<h2><a href="/demo/log/dashboard.html?m=STUDENT&s=sos326_f15">Dashboard (Problems)</a></h2>
+			    <h2><a href="/demo/log/schema_dashboard.html?m=STUDENT&s=sos326_f15">Dashboard (Generic models)</a></h2>
+			    <h2><a href="/demo/log/dashboard.html?t=leader&m=STUDENT&s=sos326_f15&us={S_USERNAME}">Open learner model (Problems)</a></h2>
+			    <h2><a href="/demo/log/schema_dashboard.html?t=olm&m=STUDENT&s=sos326_f15&us={S_USERNAME}">Open learner model (Generic models)</a></h2>-->
+<!-- ENDIF -->
 			    <h2><a href="viewforum.php?f=2">Problem Discussions</a></h2>
 		    </div>
 		</div>
