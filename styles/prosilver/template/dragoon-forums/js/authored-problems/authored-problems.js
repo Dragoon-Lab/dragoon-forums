@@ -4,6 +4,7 @@ define([
 	"dojo/_base/array",
 	"dojo/on",
 	"dojo/dom-form",
+	"dojo/dom-style",
     "dijit/_WidgetBase",
     "dijit/registry",
     "dijit/form/Form",
@@ -15,10 +16,10 @@ define([
     "dijit/_WidgetsInTemplateMixin",
     "dojo/text!./templates/authored-problems.html",
     "dojo/text!./templates/authored-problems-ee.html"
-], function(declare, lang, array, on, domForm, _WidgetBase, registry, form, select, radioButton, textBox, button, _TemplatedMixin, _WidgetsInTemplateMixin, template, template2){
+], function(declare, lang, array, on, domForm, domStyle, _WidgetBase, registry, form, select, radioButton, textBox, button, _TemplatedMixin, _WidgetsInTemplateMixin, template, template2){
 
 	return declare("AuthoredProblems",[_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
-		
+
 		templateString: template,
 		_availableProblems: null,
 		_problemIndex:[],
@@ -27,8 +28,9 @@ define([
 		_username:"",
 		_boardUrl:"",
 
-		constructor:function(/*String*/ problemsUrl, /*String*/ section, /*String*/ username, /*String*/ boardUrl, /*Number*/fid, /*Boolean*/ fenable){
+		constructor:function(/*String*/ problemsUrl, /*String*/ deleteUrl, /*String*/ section, /*String*/ username, /*String*/ boardUrl, /*Number*/fid, /*Boolean*/ fenable){
 			this.problemUrl = problemsUrl;
+			this.deleteUrl = deleteUrl;
 			this._fid = fid;
 			this._fenable = fenable;
 			this._section = section;
@@ -40,7 +42,7 @@ define([
 		},
 
 		postCreate: function(){
-			
+
 			this.getAvailableProblems("private");
 
 			//on click listener for submit
@@ -59,10 +61,20 @@ define([
 			on(registry.byId("author_folders"), "change", lang.hitch(this, function(){
 				this.onChangeFolder();
 			}));
+
 			//on change listener for mode change
 			on(registry.byId("author_problem_mode"), "change", lang.hitch(this, function(){
 				this.onChangeMode();
 			}));
+			if(!this.deleteUrl){
+				domStyle.set(registry.byId("authored_problems_delete").domNode, "display", "none");
+			}else{
+				//on click listener for delete problem
+				on(registry.byId("authored_problems_delete"), "click", lang.hitch(this, function(){
+					this.onDelete();
+
+				}));
+			}
 		},
 
 		onChangeRadio: function(value){
@@ -73,6 +85,7 @@ define([
 				registry.byId("author_problem_new_name").set("disabled", true);
 
 				registry.byId("author_problem_mode").set("readOnly", false);
+				registry.byId("authored_problems_delete").set("disabled", false);
 			}else{
 				registry.byId("author_problem_name").set("required", false);
 				registry.byId("author_problem_name").set("disabled", true);
@@ -81,6 +94,7 @@ define([
 
 				registry.byId("author_problem_mode").set("readOnly", true);
 				registry.byId("author_problem_mode").set("value", "AUTHOR");
+				registry.byId("authored_problems_delete").set("disabled", true);
 			}
 		},
 
@@ -127,13 +141,15 @@ define([
 				content:data,
 				load: lang.hitch(this, function(response){
 					this._availableProblems = response;
-					this._problemIndex = [];
+					this._problemIndex = [{value:"", label:" --- SELECT ---"}];
 					array.forEach(response, lang.hitch(this, function(data){
 						this._problemIndex.push({"label": data.problem , "value": data.problem});
 					}));
 
 					//Set Options
 					var problemSelect = registry.byId("author_problem_name");
+					registry.byId("author_problem_name").reset();
+					registry.byId("author_problem_name").set("value", "");
 					problemSelect.set("options", this._problemIndex);
 					problemSelect.startup();
 
@@ -145,9 +161,9 @@ define([
 		},
 
 		onSubmit: function(){
-			//Validate and Submit the form 
+			//Validate and Submit the form
 			registry.byId("authored_problems").validate();
-			
+
 			if(registry.byId("authored_problems").validate()){
 				var formJson = domForm.toObject("authored_problems");
 				console.log("Submit Form", formJson);
@@ -162,10 +178,41 @@ define([
 
 				url="https://dragoon.asu.edu/demo/index.html?u="+ this._username +"&g="+group+"&m="+ formJson.mode + "&sm=feedback&is=algebraic&p="+ 
 				problem+"&s="+this._section+"&f="+forumURL+"&sid="+query_sid+"&fid="+this._fid +"&fe="+this._fenable+"&a="+activity;
+
 				var win = window.open(url, '_blank');
        			win.focus();
 			}
+		},
+
+		onDelete: function(){
+			//Get group and problem
+			var group = registry.byId("author_folders").value == "private" ? this._username : registry.byId("author_folders").value;
+			var problem = registry.byId("author_problem_name").value;
+			var data = {
+				u: this._username,
+				p: problem,
+				s: this._section,
+				g: group
+			}
+			//Ask for confirmation before deleting
+			var shouldDelete = confirm("Are you sure you want to delete "+ problem +" ?");
+
+			if(shouldDelete && problem && group){
+				//Call Delete URL with data
+				dojo.xhrGet({
+					url: this.deleteUrl,
+					handleAs: 'text',
+					content: data,
+					load: lang.hitch(this,function(result){
+						alert("Problem deleted sucessfully!");
+						this.onChangeFolder();
+					}),
+					error: function(err){
+						alert("Error occured while deleting the problem");
+						console.log("Error: ", error);
+					}
+				});
+			}
 		}
-	});
-	
+	})
 });
