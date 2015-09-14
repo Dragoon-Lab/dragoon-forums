@@ -1,31 +1,31 @@
 {
     "Assignment 2": {
-        "Problem 1-Moose Population 2": { "name": "isle2", "activity" : "executionDemo", "mode":"STUDENT"},
-        "Problem 2-Moose Population 2": { "name":"isle2", "activity" : "execution", "mode":"STUDENT"},
-        "Problem 3-Moose Population 2": { "name":"isle2", "activity" : "incrementalDemo", "mode":"STUDENT"},
-        "Problem 4-Moose Population 2": { "name":"isle2", "activity" : "incremental", "mode":"STUDENT"},
-        "Problem 5-Moose Population 3": { "name":"isle3", "activity" : "incremental" , "mode":"STUDENT"},
-        "Problem 6-Bookworm": { "name":"111", "activity" :"construction" ,"mode": "STUDENT"},
-        "Problem 7-CPI 1.09 Books of a retiring professor": { "name":"CPI-2014-ps1-09", "activity" :"construction" , "mode":"STUDENT"},
-        "Problem 8-Dodo extinction": { "name":"dodos", "activity" :"construction" , "mode":"TEST"},
-        "Problem 9-CPI 1.10 Two Barrels": { "name":"two-barrels", "activity" :"construction" , "mode":"TEST"},
-        "Problem 10-Giardia": { "name":"real-giardia", "activity" :"construction" , "mode":"TEST"},
-        "Problem 11-CPI 2.02 low emission buses": { "name":"CPI-2014-ps2-02", "activity" :"construction" , "mode":"STUDENT"},
-        "Problem 12-CPI 3.03 hardwood forest": { "name":"CPI-2014-ps3-03", "activity" :"construction" , "mode":"COACHED"},
-        "Problem 13-CPI 3.06 singles club": { "name":"CPI-2014-ps3-06", "activity" :"construction" , "mode":"COACHED"},
-        "Problem 14-CPI 2.07 toilet tank": { "name":"CPI-2014-ps2-07", "activity" :"construction" , "mode":"STUDENT"},
-        "Problem 15-CPI 3.08 cell phone based doctors": { "name": "CPI-2014-ps3-08", "activity" :"construction" , "mode":"TEST"}
+        "Problem 1 - Moose population part 1": { "name": "isle2", "activity" : "executionDemo", "mode":"STUDENT"},
+        "Problem 2 - Moose population part 2": { "name":"isle2", "activity" : "execution", "mode":"STUDENT"},
+        "Problem 3 - Moose population part 3": { "name":"isle2", "activity" : "incrementalDemo", "mode":"STUDENT"},
+        "Problem 4 - Moose population part 4": { "name":"isle2", "activity" : "incremental", "mode":"STUDENT"},
+        "Problem 5 - Moose population part 5": { "name":"isle3", "activity" : "incremental" , "mode":"STUDENT"},
+        "Problem 6 - Bookworm": { "name":"111", "activity" :"construction" ,"mode": "STUDENT"},
+        "Problem 7 - Books of a retiring professor": { "name":"CPI-2014-ps1-09", "activity" :"construction" , "mode":"STUDENT"},
+        "Problem 8 - Dodo extinction": { "name":"dodos", "activity" :"construction" , "mode":"TEST"},
+        "Problem 9 - Two barrels": { "name":"two-barrels", "activity" :"construction" , "mode":"TEST"},
+        "Problem 10 - Giardia": { "name":"real-giardia", "activity" :"construction" , "mode":"TEST"},
+        "Problem 11 - Low emission buses": { "name":"CPI-2014-ps2-02", "activity" :"construction" , "mode":"STUDENT"},
+        "Problem 12 - Hardwood forest": { "name":"CPI-2014-ps3-03", "activity" :"construction" , "mode":"COACHED"},
+        "Problem 13 - Singles club": { "name":"CPI-2014-ps3-06", "activity" :"construction" , "mode":"COACHED"},
+        "Problem 14 - Toilet tank": { "name":"CPI-2014-ps2-07", "activity" :"construction" , "mode":"STUDENT"},
+        "Problem 15 - Cell phone based doctors": { "name": "CPI-2014-ps3-08", "activity" :"construction" , "mode":"TEST"}
     },
     "Quiz 1": {
         "Quiz 1": { "name": "CPI-2014-quiz1", "activity" :"construction" , "mode":"EDITOR"}        
     },
     "Assignment 3": {
-        "Problem 1-Zebra 1": { "name": "zebra-population-growth-1", "activity" :"construction" , "mode":"TEST"},
-        "Problem 2-Zebra 2": { "name": "zebra-population-growth-2", "activity" :"construction" , "mode":"TEST"},
-        "Problem 3-Zebra 3": { "name": "zebra-population-growth-3", "activity" :"construction" , "mode":"TEST"},
-        "Problem 4-Zebra 4": { "name": "zebra-population-growth-4", "activity" :"construction" , "mode":"TEST"},
-        "Problem 5-Lion Zebra Independent": { "name": "zebra-lions-independent", "activity" :"construction" , "mode":"STUDENT"},
-        "Problem 6-Lion Zebra Combined":{ "name": "zebra-lions-combined", "activity" :"construction" , "mode":"STUDENT"}       
+        "Problem 1 - Zebras part 1": { "name": "zebra-population-growth-1", "activity" :"construction" , "mode":"TEST"},
+        "Problem 2 - Zebras part 2": { "name": "zebra-population-growth-2", "activity" :"construction" , "mode":"TEST"},
+        "Problem 3 - Zebras part 3": { "name": "zebra-population-growth-3", "activity" :"construction" , "mode":"TEST"},
+        "Problem 4 - Zebras part 4": { "name": "zebra-population-growth-4", "activity" :"construction" , "mode":"TEST"},
+        "Problem 5 - Zebras and lions part 1": { "name": "zebra-lions-independent", "activity" :"construction" , "mode":"STUDENT"},
+        "Problem 6 - Zebras and lions part 2":{ "name": "zebra-lions-combined", "activity" :"construction" , "mode":"STUDENT"}       
     },
     "Quiz 2": {
         "Quiz 2 Problem 1": { "name": "CPI-2014-exam-q1", "activity" :"construction" , "mode":"EDITOR"},
